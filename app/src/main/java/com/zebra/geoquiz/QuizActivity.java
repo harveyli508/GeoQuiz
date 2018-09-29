@@ -2,19 +2,21 @@ package com.zebra.geoquiz;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static android.widget.Toast.makeText;
 
 public class QuizActivity extends AppCompatActivity {
+    private static final String TAG = "QuizActivity";
+
     private Button mTrueButton;
     private Button mFalseButton;
-    private Button mNextButton;
-    private Button mPrevButton;
+    private ImageButton mNextImgBtn;
+    private ImageButton mPrevImgBtn;
     private int mCurrentIndex = 0;
     private TextView mQuestionTextView;
 
@@ -27,6 +29,7 @@ public class QuizActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(TAG, "onCreate(Bundle) called");
         setContentView(R.layout.activity_main);
 
         mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
@@ -40,24 +43,22 @@ public class QuizActivity extends AppCompatActivity {
 //                Toast toast = Toast.makeText(QuizActivity.this, R.string.correct_msg, Toast.LENGTH_LONG);
 ////                toast.setGravity(Gravity.CENTER, 0, 0);
 ////                toast.show();
-                if(mQuestionBank[mCurrentIndex].isAnswerTrue())
-                    Toast.makeText(QuizActivity.this, R.string.correct_msg, Toast.LENGTH_SHORT).show();
-                else
-                    Toast.makeText(QuizActivity.this, R.string.incorrect_msg, Toast.LENGTH_SHORT).show();
+                checkAnswer(true);
             }
         });
         mFalseButton = (Button)findViewById(R.id.bt_false);
         mFalseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast toast = Toast.makeText(QuizActivity.this, R.string.incorrect_msg, Toast.LENGTH_LONG);
-                toast.setGravity(Gravity.CENTER, 0, 0);
-                toast.show();
+//                Toast toast = Toast.makeText(QuizActivity.this, R.string.incorrect_msg, Toast.LENGTH_LONG);
+//                toast.setGravity(Gravity.CENTER, 0, 0);
+//                toast.show();
+                checkAnswer(false);
             }
         });
 
-        mNextButton = (Button) findViewById(R.id.btn_next);
-        mNextButton.setOnClickListener(new View.OnClickListener() {
+        mNextImgBtn = (ImageButton) findViewById(R.id.imgbtn_next);
+        mNextImgBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
@@ -65,11 +66,11 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
 
-        mPrevButton = (Button) findViewById(R.id.btn_prev);
-        mPrevButton.setOnClickListener(new View.OnClickListener() {
+        mPrevImgBtn = (ImageButton) findViewById(R.id.imgbtn_back);
+        mPrevImgBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mCurrentIndex = (mCurrentIndex - 1) % mQuestionBank.length;
+                mCurrentIndex = (mCurrentIndex + mQuestionBank.length - 1) % mQuestionBank.length;
                 updateQuestion();
             }
         });
@@ -80,5 +81,18 @@ public class QuizActivity extends AppCompatActivity {
     private void updateQuestion() {
         int question = mQuestionBank[mCurrentIndex].getTextResId();
         mQuestionTextView.setText(question);
+    }
+
+    private void checkAnswer(boolean userPressedTrue) {
+        boolean answerIsTrue = mQuestionBank[mCurrentIndex].isAnswerTrue();
+
+        int messageResId = 0;
+        if(userPressedTrue == answerIsTrue) {
+            messageResId = R.string.correct_msg;
+        } else{
+            messageResId = R.string.incorrect_msg;
+        }
+
+        Toast.makeText(this, messageResId, Toast.LENGTH_LONG).show();
     }
 }

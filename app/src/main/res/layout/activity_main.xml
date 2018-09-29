@@ -44,23 +44,19 @@
         android:layout_height="59dp"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btn_prev"
+        <ImageButton
+            android:id="@+id/imgbtn_back"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="49dp"
             android:layout_weight="1"
-            android:drawablePadding="4dp"
-            android:drawableLeft="@drawable/arrow_left"
-            android:text="@string/prev_button" />
+            app:srcCompat="@drawable/arrow_left" />
 
-        <Button
-            android:id="@+id/btn_next"
+        <ImageButton
+            android:id="@+id/imgbtn_next"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="47dp"
             android:layout_weight="1"
-            android:drawablePadding="4dp"
-            android:drawableRight="@drawable/arrow_right"
-            android:text="@string/next_button" />
+            app:srcCompat="@drawable/arrow_right" />
 
     </LinearLayout>
 
