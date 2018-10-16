@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".QuizActivity">
+
+    <TextView
+        android:id="@+id/question_text_view"
+        android:layout_width="260dp"
+        android:layout_height="53dp"
+        android:textAlignment="center"
+        android:layout_gravity="center_horizontal"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="260dp"
+        android:layout_height="59dp"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt_true"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/true_button" />
+
+        <Button
+            android:id="@+id/bt_false"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/false_button" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/imgbtn_back"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom|start"
+        android:contentDescription="@string/prev_button"
+        app:srcCompat="@drawable/arrow_left" />
+
+    <ImageButton
+        android:id="@+id/imgbtn_next"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom|end"
+        android:contentDescription="@string/next_button"
+        app:srcCompat="@drawable/arrow_right" />
+
+</FrameLayout>
