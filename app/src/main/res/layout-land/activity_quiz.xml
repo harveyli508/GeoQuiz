@@ -40,14 +40,6 @@
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/imgbtn_back"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_gravity="bottom|start"
-        android:contentDescription="@string/prev_button"
-        app:srcCompat="@drawable/arrow_left" />
-
-    <ImageButton
         android:id="@+id/imgbtn_next"
         android:layout_width="80dp"
         android:layout_height="50dp"

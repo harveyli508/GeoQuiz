@@ -71,17 +71,6 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
 
-        mPrevImgBtn = (ImageButton) findViewById(R.id.imgbtn_back);
-        mPrevImgBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mCurrentIndex = (mCurrentIndex + mQuestionBank.length - 1) % mQuestionBank.length;
-                updateQuestion();
-                mTrueButton.setEnabled(true);
-                mFalseButton.setEnabled(true);
-            }
-        });
-
         updateQuestion();
     }
 

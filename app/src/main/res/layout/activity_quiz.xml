@@ -13,6 +13,7 @@
         android:layout_width="260dp"
         android:layout_height="53dp"
         android:textAlignment="center"
+        android:gravity="center"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -26,6 +27,7 @@
 
         <Button
             android:id="@+id/bt_true"
+            style="@style/Widget.AppCompat.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -33,31 +35,18 @@
 
         <Button
             android:id="@+id/bt_false"
+            style="@style/Widget.AppCompat.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/false_button" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="265dp"
-        android:layout_height="59dp"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/imgbtn_back"
-            android:layout_width="0dp"
-            android:layout_height="49dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/arrow_left" />
-
-        <ImageButton
-            android:id="@+id/imgbtn_next"
-            android:layout_width="0dp"
-            android:layout_height="47dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/arrow_right" />
-
-    </LinearLayout>
+    <ImageButton
+        android:id="@+id/imgbtn_next"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:contentDescription="@string/next_button"
+        app:srcCompat="@drawable/arrow_right" />
 
 </LinearLayout>
