@@ -42,6 +42,12 @@
             android:text="@string/false_button" />
     </LinearLayout>
 
+    <Button
+        android:id="@+id/cheat_button"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:text="@string/cheat_button" />
+
     <ImageButton
         android:id="@+id/imgbtn_next"
         android:layout_width="50dp"
